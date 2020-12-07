@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'color-switcher';
+  color = '';
+
+  setColor(color: string): void {
+    console.log('setColor begin', this.color, color);
+    this.color = color;
+    console.log('setColor end', this.color, color);
+  }
 }

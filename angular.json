@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "color-switcher"
+  "defaultProject": "color-switcher",
+  "cli": {
+    "analytics": false
+  }
 }
