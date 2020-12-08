@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { setColor } from './state/color.actions';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  color = '';
+  color$: Observable<string>;
+
+  constructor(private store: Store<{ color: string }>) {
+    this.color$ = store.select('color');
+  }
 
   setColor(color: string): void {
-    console.log('setColor begin', this.color, color);
-    this.color = color;
-    console.log('setColor end', this.color, color);
+    this.store.dispatch(setColor({ color }));
   }
 }

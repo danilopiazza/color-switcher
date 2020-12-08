@@ -1,4 +1,4 @@
-<div class="angular-root" [ngClass]="color">
+<div class="angular-root" ngClass="{{ color$ | async }}">
   <div class="centered">
     <h1>Color Picker</h1>
     <app-color-change-button color="red" (colorChanged)="setColor($event)"></app-color-change-button>
